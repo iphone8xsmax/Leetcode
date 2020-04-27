@@ -1,0 +1,15 @@
+SQL分为两个部分：数据操作语言 (DML) 和 数据定义语言 (DDL)
+
+DML：
+  select -从数据库中获取数据
+  update -更新数据
+  delete -删除数据
+
+DLL：
+  create database -创建新数据库
+  alter database  -修改数据库
+  create table    -创建新表
+  alter table     -变更数据库表
+  drop table      -删除表
+  create index    -创建索引
+  drop index      -删除索引

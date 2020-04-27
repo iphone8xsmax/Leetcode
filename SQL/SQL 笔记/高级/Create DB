@@ -1,0 +1,5 @@
+CREATE DATABASE database_name
+
+现在我们希望创建一个名为 "my_db" 的数据库。
+我们使用下面的 CREATE DATABASE 语句：
+CREATE DATABASE my_db

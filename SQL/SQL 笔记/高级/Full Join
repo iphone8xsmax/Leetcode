@@ -1,0 +1,12 @@
+只要其中某个表存在匹配，FULL JOIN 关键字就会返回行。
+
+SELECT column_name(s)
+FROM table_name1
+FULL JOIN table_name2
+ON table_name1.column_name=table_name2.column_name
+
+SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons
+FULL JOIN Orders
+ON Persons.Id_P=Orders.Id_P
+ORDER BY Persons.LastName

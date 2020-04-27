@@ -1,0 +1,8 @@
+如需有条件地从表中选取数据，可将 WHERE 子句添加到 SELECT 语句。
+SELECT 列名称 FROM 表名称 WHERE 列 运算符 值
+
+SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。
+如果是数值，请不要使用引号。
+SELECT * FROM Persons WHERE FirstName='Bush'
+
+SELECT * FROM Persons WHERE Year>1965

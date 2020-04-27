@@ -1,0 +1,40 @@
+一个表中的 FOREIGN KEY 指向另一个表中的 PRIMARY KEY
+
+FOREIGN KEY 约束用于预防破坏表之间连接的动作。
+FOREIGN KEY 约束也能防止非法数据插入外键列，因为它必须是它指向的那个表中的值之一。
+
+下面的 SQL 在 "Orders" 表创建时为 "Id_P" 列创建 FOREIGN KEY：
+CREATE TABLE Orders
+(
+Id_O int NOT NULL,
+OrderNo int NOT NULL,
+Id_P int,
+PRIMARY KEY (Id_O),
+FOREIGN KEY (Id_P) REFERENCES Persons(Id_P)
+)
+
+如果需要命名 FOREIGN KEY 约束，以及为多个列定义 FOREIGN KEY 约束，请使用下面的 SQL 语法:
+CREATE TABLE Orders
+(
+  Id_O int NOT NULL,
+  OrderNo int NOT NULL,
+  Id_P int,
+  PRIMARY KEY (Id_O),
+  CONSTRAINT fk_PerOrders FOREIGN KEY (Id_P)
+  REFERENCES Persons(Id_P)
+)
+
+如果在 "Orders" 表已存在的情况下为 "Id_P" 列创建 FOREIGN KEY 约束，请使用下面的 SQL：
+ALTER TABLE Orders
+ADD FOREIGN KEY (Id_P)
+REFERENCES Persons(Id_P)
+
+如果需要命名 FOREIGN KEY 约束，以及为多个列定义 FOREIGN KEY 约束，请使用下面的 SQL 语法：
+ALTER TABLE Orders
+ADD CONSTRAINT fk_PerOrders
+FOREIGN KEY (Id_P)
+REFERENCES Persons(Id_P)
+
+如需撤销 FOREIGN KEY 约束，请使用下面的 SQL：
+ALTER TABLE Orders
+DROP FOREIGN KEY fk_PerOrders

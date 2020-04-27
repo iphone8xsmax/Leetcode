@@ -1,0 +1,17 @@
+TOP 子句用于规定要返回的记录的数目。
+对于拥有数千条记录的大型表来说，TOP 子句是非常有用的。
+
+SELECT column_name(s)
+FROM table_name
+LIMIT number
+
+
+SELECT *
+FROM Persons
+LIMIT 5
+
+ "Persons" 表中选取头两条记录:
+SELECT TOP 2 * FROM Persons
+
+ "Persons" 表中选取 50% 的记录:
+SELECT TOP 50 PERCENT * FROM Persons

@@ -1,0 +1,39 @@
+PRIMARY KEY 约束唯一标识数据库表中的每条记录。
+主键必须包含唯一的值。
+主键列不能包含 NULL 值。
+每个表都应该有一个主键，并且每个表只能有一个主键。
+
+在 "Persons" 表创建时在 "Id_P" 列创建 PRIMARY KEY 约束：
+CREATE TABLE Persons
+(
+Id_P int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+PRIMARY KEY (Id_P)
+)
+
+如果需要命名 PRIMARY KEY 约束，以及为多个列定义 PRIMARY KEY 约束，请使用下面的 SQL 语法：
+CREATE TABLE Persons
+(
+Id_P int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+CONSTRAINT pk_PersonID PRIMARY KEY (Id_P,LastName)
+)
+
+如果在表已存在的情况下为 "Id_P" 列创建 PRIMARY KEY 约束，请使用下面的 SQL：
+ALTER TABLE Persons
+ADD PRIMARY KEY (Id_P)
+
+如果需要命名 PRIMARY KEY 约束，以及为多个列定义 PRIMARY KEY 约束，请使用下面的 SQL 语法：
+ALTER TABLE Persons
+ADD CONSTRAINT pk_PersonID PRIMARY KEY (Id_P,LastName)
+如果您使用 ALTER TABLE 语句添加主键，必须把主键列声明为不包含 NULL 值（在表首次创建时）
+
+如需撤销 PRIMARY KEY 约束:
+ALTER TABLE Persons
+DROP PRIMARY KEY

@@ -1,0 +1,39 @@
+CHECK 约束用于限制列中的值的范围。
+如果对单个列定义 CHECK 约束，那么该列只允许特定的值。
+如果对一个表定义 CHECK 约束，那么此约束会在特定的列中对值进行限制。
+
+下面的 SQL 在 "Persons" 表创建时为 "Id_P" 列创建 CHECK 约束。
+CHECK 约束规定 "Id_P" 列必须只包含大于 0 的整数。
+
+CREATE TABLE Persons
+(
+Id_P int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+CHECK (Id_P>0)
+)
+
+如果需要命名 CHECK 约束，以及为多个列定义 CHECK 约束，请使用下面的 SQL 语法：
+CREATE TABLE Persons
+(
+Id_P int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+CONSTRAINT chk_Person CHECK (Id_P>0 AND City='Sandnes')
+)
+
+如果在表已存在的情况下为 "Id_P" 列创建 CHECK 约束，请使用下面的 SQL:
+ALTER TABLE Persons
+ADD CHECK (Id_P>0)
+
+如果需要命名 CHECK 约束，以及为多个列定义 CHECK 约束，请使用下面的 SQL 语法:
+ALTER TABLE Persons
+ADD CONSTRAINT chk_Person CHECK (Id_P>0 AND City='Sandnes')
+
+如需撤销 CHECK 约束，请使用下面的 SQL：
+ALTER TABLE Persons
+DROP CHECK chk_Person

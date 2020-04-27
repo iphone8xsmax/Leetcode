@@ -1,0 +1,24 @@
+LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式
+
+SELECT column_name(s)
+FROM table_name
+WHERE column_name LIKE pattern
+
+Persons 表:
+Id	LastName	FirstName	  Address	         City
+1	  Adams	    John	      Oxford Street	   London
+2	  Bush	    George	    Fifth Avenue	   New York
+3	  Carter	  Thomas	    Changan Street 	 Beijing
+
+现在，我们希望从上面的 "Persons" 表中选取居住在以 "N" 开始的城市里的人：
+SELECT * FROM Persons
+WHERE City LIKE 'N%'
+"%" 可用于定义通配符（模式中缺少的字母）
+
+接下来，我们希望从 "Persons" 表中选取居住在以 "g" 结尾的城市里的人：
+SELECT * FROM Persons
+WHERE City LIKE '%g'
+
+通过使用 NOT 关键字，我们可以从 "Persons" 表中选取居住在不包含 "lon" 的城市里的人：
+SELECT * FROM Persons
+WHERE City NOT LIKE '%lon%'

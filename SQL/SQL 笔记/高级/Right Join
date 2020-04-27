@@ -1,0 +1,12 @@
+RIGHT JOIN 关键字会右表 (table_name2) 那里返回所有的行，即使在左表 (table_name1) 中没有匹配的行。
+
+SELECT column_name(s)
+FROM table_name1
+RIGHT JOIN table_name2
+ON table_name1.column_name=table_name2.column_name
+
+SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons
+RIGHT JOIN Orders
+ON Persons.Id_P=Orders.Id_P
+ORDER BY Persons.LastName

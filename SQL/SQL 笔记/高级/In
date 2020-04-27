@@ -1,0 +1,8 @@
+IN 操作符允许我们在 WHERE 子句中规定多个值。
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1,value2,...)
+
+现在，我们希望从上表中选取姓氏为 Adams 和 Carter 的人：
+SELECT * FROM Persons
+WHERE LastName IN ('Adams','Carter')
