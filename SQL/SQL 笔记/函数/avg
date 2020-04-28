@@ -1,0 +1,11 @@
+AVG 函数返回数值列的平均值。NULL 值不包括在计算中。
+SELECT AVG(column_name) FROM table_name
+
+计算 "OrderPrice" 字段的平均值。
+我们使用如下 SQL 语句：
+SELECT AVG(OrderPrice) AS OrderAverage FROM Orders
+
+找到 OrderPrice 值高于 OrderPrice 平均值的客户。
+我们使用如下 SQL 语句：
+SELECT Customer FROM Orders
+WHERE OrderPrice>(SELECT AVG(OrderPrice) FROM Orders)

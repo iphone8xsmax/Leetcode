@@ -1,0 +1,25 @@
+ALTER TABLE 语句用于在已有的表中添加、修改或删除列。
+
+如需在表中添加列，请使用下列语法:
+ALTER TABLE table_name
+ADD column_name datatype
+
+要删除表中的列，请使用下列语法：
+ALTER TABLE table_name
+DROP COLUMN column_name
+
+要改变表中列的数据类型，请使用下列语法：
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype
+
+在表 "Persons" 中添加一个名为 "Birthday" 的新列：
+ALTER TABLE Persons
+ADD Birthday date
+
+改变 "Persons" 表中 "Birthday" 列的数据类型：
+ALTER TABLE Persons
+ALTER COLUMN Birthday year
+
+删除 "Person" 表中的 "Birthday" 列：
+ALTER TABLE Person
+DROP COLUMN Birthday

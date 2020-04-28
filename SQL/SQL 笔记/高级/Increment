@@ -1,0 +1,32 @@
+Auto-increment 会在新记录插入表中时生成一个唯一的数字
+
+把 "Persons" 表中的 "P_Id" 列定义为 auto-increment 主键：
+CREATE TABLE Persons
+(
+P_Id int NOT NULL AUTO_INCREMENT,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+PRIMARY KEY (P_Id)
+)
+默认地，AUTO_INCREMENT 的开始值是 1，每条新记录递增 1。
+
+要让 AUTO_INCREMENT 序列以其他的值起始，请使用下列 SQL 语法：
+ALTER TABLE Persons AUTO_INCREMENT=100
+要规定 "P_Id" 列以 20 起始且递增 10，
+请把 autoincrement 改为 AUTOINCREMENT(20,10)
+
+要在 "Persons" 表中插入新记录，我们不必为 "P_Id" 列规定值（会自动添加一个唯一的值）：
+INSERT INTO Persons (FirstName,LastName) VALUES ('Bill','Gates')
+
+
+把 "Persons" 表中的 "P_Id" 列定义为 auto-increment 主键：
+CREATE TABLE Persons
+(
+P_Id int PRIMARY KEY AUTOINCREMENT,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255)
+)

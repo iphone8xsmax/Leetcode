@@ -1,0 +1,29 @@
+NULL 值是遗漏的未知数据。
+默认地，表的列可以存放 NULL 值。
+
+果表中的某个列是可选的，那么我们可以在不向该列添加值的情况下插入新记录或更新已有的记录。
+这意味着该字段将以 NULL 值保存。
+NULL 值的处理方式与其他值不同。
+NULL 用作未知的或不适用的值的占位符。
+
+注释：无法比较 NULL 和 0；它们是不等价的。
+
+
+仅仅选取在 "Address" 列中带有 NULL 值的记录呢？
+我们必须使用 IS NULL 操作符：
+SELECT LastName,FirstName,Address FROM Persons
+WHERE Address IS NULL
+
+选取在 "Address" 列中不带有 NULL 值的记录:
+我们必须使用 IS NOT NULL 操作符：
+SELECT LastName,FirstName,Address FROM Persons
+WHERE Address IS NOT NULL
+
+
+IFNULL() 函数，就像这样：
+SELECT ProductName,UnitPrice*(UnitsInStock+IFNULL(UnitsOnOrder,0))
+FROM Products
+
+或者我们可以使用 COALESCE() 函数，就像这样：
+SELECT ProductName,UnitPrice*(UnitsInStock+COALESCE(UnitsOnOrder,0))
+FROM Products
