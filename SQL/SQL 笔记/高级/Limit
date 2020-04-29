@@ -1,0 +1,16 @@
+limit子句用于限制查询结果返回的数量，常用于分页查询
+
+select * from tableName limit i,n
+# tableName：表名
+# i：为查询结果的索引值(默认从0开始)，当i=0时可省略i
+# n：为查询结果返回的数量
+# i与n之间使用英文逗号","隔开
+
+limit n 等同于 limit 0,n
+
+# 查询10条数据，索引从0到9，第1条记录到第10条记录
+select * from t_user limit 10;
+select * from t_user limit 0,10;
+
+# 查询8条数据，索引从5到12，第6条记录到第13条记录
+select * from t_user limit 5,8;

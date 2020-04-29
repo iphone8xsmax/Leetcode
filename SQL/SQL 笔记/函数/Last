@@ -1,0 +1,7 @@
+LAST() 函数返回指定的字段中最后一个记录的值。
+提示：可使用 ORDER BY 语句对记录进行排序。
+
+SELECT LAST(column_name) FROM table_name
+
+查找 "OrderPrice" 列的最后一个值:
+SELECT LAST(OrderPrice) AS LastOrderPrice FROM Orders

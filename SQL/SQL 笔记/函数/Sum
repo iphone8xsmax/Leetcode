@@ -1,0 +1,6 @@
+SUM 函数返回数值列的总数（总额）。
+
+SELECT SUM(column_name) FROM table_name
+
+查找 "OrderPrice" 字段的总数:
+SELECT SUM(OrderPrice) AS OrderTotal FROM Orders

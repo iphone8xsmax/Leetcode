@@ -1,0 +1,17 @@
+COUNT() 函数返回匹配指定条件的行数。
+
+COUNT(column_name) 函数返回指定列的值的数目（NULL 不计入）：
+SELECT COUNT(column_name) FROM table_name
+
+COUNT(*) 函数返回表中的记录数：
+SELECT COUNT(*) FROM table_name
+
+COUNT(DISTINCT column_name) 函数返回指定列的不同值的数目：
+SELECT COUNT(DISTINCT column_name) FROM table_name
+
+计算客户 "Carter" 的订单数:
+SELECT COUNT(Customer) AS CustomerNilsen FROM Orders
+WHERE Customer='Carter'
+
+计算 "Orders" 表中不同客户的数目。
+SELECT COUNT(DISTINCT Customer) AS NumberOfCustomers FROM Orders

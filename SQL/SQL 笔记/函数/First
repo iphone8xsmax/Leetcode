@@ -1,0 +1,7 @@
+FIRST() 函数返回指定的字段中第一个记录的值。
+提示：可使用 ORDER BY 语句对记录进行排序。
+
+SELECT FIRST(column_name) FROM table_name
+
+查找 "OrderPrice" 列的第一个值:
+SELECT FIRST(OrderPrice) AS FirstOrderPrice FROM Orders

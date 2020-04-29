@@ -1,0 +1,7 @@
+NOW 函数返回当前的日期和时间。
+如果使用 Sql Server 数据库，请使用 getdate() 函数来获得当前的日期时间。
+
+SELECT NOW() FROM table_name
+
+显示当天的日期所对应的名称和价格:
+SELECT ProductName, UnitPrice, Now() as PerDate FROM Products

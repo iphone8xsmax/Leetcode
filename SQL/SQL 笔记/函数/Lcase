@@ -1,0 +1,6 @@
+LCASE 函数把字段的值转换为小写。
+
+SELECT LCASE(column_name) FROM table_name
+
+选取 "LastName" 和 "FirstName" 列的内容，然后把 "LastName" 列转换为小写。
+SELECT LCASE(LastName) as LastName,FirstName FROM Persons

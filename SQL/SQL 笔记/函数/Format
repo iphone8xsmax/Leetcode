@@ -1,0 +1,7 @@
+FORMAT 函数用于对字段的显示进行格式化。
+
+SELECT FORMAT(column_name,format) FROM table_name
+
+显示每天日期所对应的名称和价格（日期的显示格式是 "YYYY-MM-DD"）:
+SELECT ProductName, UnitPrice, FORMAT(Now(),'YYYY-MM-DD') as PerDate
+FROM Products

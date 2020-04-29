@@ -1,0 +1,16 @@
+合计函数 (比如 SUM) 常常需要添加 GROUP BY 语句。
+GROUP BY 语句用于结合合计函数，根据一个或多个列对结果集进行分组。
+
+SELECT column_name, aggregate_function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name
+
+查找每个客户的总金额（总订单）。
+我们想要使用 GROUP BY 语句对客户进行组合:
+SELECT Customer,SUM(OrderPrice) FROM Orders
+GROUP BY Customer
+
+对一个以上的列应用 GROUP BY 语句，就像这样：
+SELECT Customer,OrderDate,SUM(OrderPrice) FROM Orders
+GROUP BY Customer,OrderDate

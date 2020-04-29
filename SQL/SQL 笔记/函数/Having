@@ -1,0 +1,19 @@
+在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与合计函数一起使用。
+
+SELECT column_name, aggregate_function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name
+HAVING aggregate_function(column_name) operator value
+
+查找订单总金额少于 2000 的客户:
+SELECT Customer,SUM(OrderPrice) FROM Orders
+GROUP BY Customer
+HAVING SUM(OrderPrice)<2000
+
+查找客户 "Bush" 或 "Adams" 拥有超过 1500 的订单总金额。
+在 SQL 语句中增加了一个普通的 WHERE 子句：
+SELECT Customer,SUM(OrderPrice) FROM Orders
+WHERE Customer='Bush' OR Customer='Adams'
+GROUP BY Customer
+HAVING SUM(OrderPrice)>1500

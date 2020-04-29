@@ -1,0 +1,6 @@
+LEN 函数返回文本字段中值的长度。
+
+SELECT LEN(column_name) FROM table_name
+
+取得 "City" 列中值的长度:
+SELECT LEN(City) as LengthOfCity FROM Persons

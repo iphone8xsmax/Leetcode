@@ -1,0 +1,6 @@
+UCASE 函数把字段的值转换为大写。
+
+SELECT UCASE(column_name) FROM table_name
+
+选取 "LastName" 和 "FirstName" 列的内容，然后把 "LastName" 列转换为大写。
+SELECT UCASE(LastName) as LastName,FirstName FROM Persons
