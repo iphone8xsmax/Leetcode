@@ -10,7 +10,7 @@ func threeSum(nums []int) [][]int {
     var res [][]int
     //计算的是从i向后的
     for i, num := range nums{
-        if num > 0{ //nums[i]大于0了，之后的肯定也大于0 
+        if num > 0{ //nums[i]大于0了，之后的肯定也大于0
             break
         }
         if i > 0 && nums[i] == nums[i-1]{ //向前去一次重，否则可能会继承前一次的结果，出现重复=0的数组

@@ -32,7 +32,7 @@ func Dfs(path, candidates []int, begin int, size int, res *[][]int, target int){
 	//将每一个可能符合条件的数据放入，然后得到新的target，再进行递归，直到发现无法满足为止
 	//因为可以重复，所以for循环进行多次遍历，否则需要判别是否重复，continue
 	for index:=begin;index<size;index++{
-		residue := target - candidates[index] 
+		residue := target - candidates[index]
 		if residue < 0{
 			break
 		}

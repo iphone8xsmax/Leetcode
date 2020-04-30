@@ -3,7 +3,7 @@
 
 func fourSum(nums []int, target int) [][]int {
 	sort.Ints(nums) //排序
-	var res [][]int 
+	var res [][]int
 	nSum(nums, target, 0, 4, &res, []int{}) //调用求和数组函数
 	return res
 }
