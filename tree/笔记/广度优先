@@ -1,0 +1,87 @@
+//广度优先使用队列
+/*
+按照高度顺序，从上往下逐层遍历节点。
+先遍历上层节点再遍历下层节点。
+*/
+
+//使用切片实现队列
+package queue
+
+type Queue interface{
+  Offer(e interface{})
+  Poll() interface{}
+  Clear() bool
+  Size()  int
+  IsEmpty() bool
+}
+
+type LinkedList struct{
+  elements []interface{}
+}
+
+//初始化一个新的队列
+func New() *LinkedList {
+  return &LinkedList{}
+}
+
+//入队
+func (queue *LinkedList) Offer(e interface{}) {
+  queue.elements = append(queue.elements, e)
+}
+
+//出队列
+func (queue *LinkedList) Poll() interface{} {
+  if queue.IsEmpty(){
+    fmt.Println("Poll error: queue is Empty")
+    return nil
+  }
+
+  firstElement := queue.elements[0]
+  queue.elements = queue.elements[1:]
+  return firstElement
+}
+
+//队列长度
+func (queue *LinkedList) Size() int {
+  return len(queue.elements)
+}
+
+//队列是否为空
+func(queue *LinkedList) IsEmpty() bool{
+  return len(queue.elements) == 0
+}
+
+//清空队列
+func (queue *LinkedList) Clear() bool {
+  if queue.IsEmpty(){
+    fmt.Println("queue is Empty!")
+    return false
+  }
+  for i := 0l i < queue.Size(); i++{
+    queue.elements[i] = nil
+  }
+  queue.elements = nil
+  return true
+}
+
+//层序遍历
+func (root *Node) LevelTravesal(){
+  if root == nil{
+    return
+  }
+  linkedlist := queue.New() //初始化一个队列
+  linkedlist.Offer(root) //根节点入队
+
+  for !linkedlist.IsEmpty(){
+    cur := linkedlist.Poll().(*Node) //队首出队
+    fmt.Println(cur.Val)
+
+    if cur.Left != nil{
+      linkedlist.Offer(cur.Left) //左节点入队
+    }
+
+    if cur.Right != nil{
+      linkedlist.Offer(cur.Right)
+    }
+  }
+}

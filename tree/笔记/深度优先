@@ -1,0 +1,124 @@
+//深度优先使用栈
+
+/*
+这种方法以深度 depth 优先为策略，从根节点开始一直遍历到某个叶子节点，
+然后回到根节点，在遍历另外一个分支。
+根据根节点，左孩子节点和右孩子节点的访问顺序又可以将 DFS 细分为
+先序遍历 preorder，中序遍历 inorder 和后序遍历 postorder。
+*/
+
+type Node struct{
+  Val int
+  Left *Node
+  Right *Node
+}
+
+//栈的定义
+type Stack struct{
+  list *list.List
+}
+
+//初始化栈
+func NewStack() *Stack {
+  list := list.New()
+  return &Stack{list}
+}
+
+//入栈
+func (stack *Stack) Push(value interface{}) {
+  stack.list.PushBack(value) //PushBack在列表的后面插入一个值为value的新元素并返回它。
+}
+
+//出栈
+func (stack *Stack) Pop() interface{} {
+  if e := stack.list.Back(); e != nil{
+    stack.list.Remove(e)
+    return e.Value
+  }
+  return nil
+}
+
+//栈长
+func (stack *Stack) Len() int {
+  return stack.list.Len()
+}
+
+//判断栈是否为空
+func (stack *Stack) Empty() bool{
+  return stack.Len() == 0
+}
+
+
+//前序遍历:通过栈,将右子树先行压栈,然后左子树压栈
+func (root *Node) PreTracesal() {
+  if root == nil{
+    return
+  }
+
+  s := stack.NewStack()  //初始化一个新栈
+  s.push(root)  //root压栈
+
+  for !s.Empty(){
+    cur := s.Pop.(*Node) //栈顶节点出栈
+    fmt.Println(cur.Val)
+
+    if cur.Right != nil{ //右子树压栈
+      s.Push(cur.Right)
+    }
+    if cur.Left != nil{ //左子树压栈
+      s.Push(cur.Left)
+    }
+  }
+}
+
+//中序遍历
+func (root *Node) InTracesal() {
+  if root == nil{
+    return
+  }
+
+  s := stack.NewStack()
+  cur := root
+  for{
+    for cur != nil{
+      s.push(cur) //cur节点入栈
+      cur = cur.Left //依次找左子节点
+    }
+
+    if s.Empty(){
+      break
+    }
+
+    cur = s.Pop().(*Node)//依次栈顶出栈
+    fmt.Println(cur.Val)
+    cur.cur.right//再右节点入栈,循环操作
+  }
+}
+
+//后序遍历
+func (root *Node) PostTravesal() {
+  if root == nil{
+    return
+  }
+
+  s := stack.NewStack()
+  out := stack.NewStack()
+  s.Push(root) //根节点先入栈
+
+  for !s.Empty(){
+    cur := s.Pop().(*Node)//s栈顶节点
+    out.Push(cur)//将s的栈顶元素压入out栈
+
+    if cur.Left != nil{
+      s.Push(cur.Left) //左节点入栈
+    }
+    if cur.Right != nil{
+      s.Push(cur.Right) //右节点入栈
+    }
+  }
+
+  for !oup.Empty{
+    cur := out.Pop().(*Node) //弹出栈顶元素
+    fmt.Println(cur.Val)
+  }
+}
