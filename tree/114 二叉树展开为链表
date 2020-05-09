@@ -1,0 +1,50 @@
+
+给定一个二叉树，原地将它展开为链表。
+
+例如，给定二叉树
+
+    1
+   / \
+  2   5
+ / \   \
+3   4   6
+将其展开为：
+
+1
+ \
+  2
+   \
+    3
+     \
+      4
+       \
+        5
+         \
+          6
+
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func flatten(root *TreeNode) *TreeNode {
+	head := root
+	var max *TreeNode
+
+	for root != nil {  //优先左子树,将右子树续到左子树的最右节点
+		if root.Left == nil {
+			root = root.Right
+		} else {
+			max = root.Left
+			for max.Right != nil {
+				max = max.Right   //找到左子树的最右节点
+			}
+			root.Right, max.Right = root.Left, root.Right   //根节点的右孩子变成左子树,原本的右孩子续到最右叶子节点
+            root.Left = nil
+		}
+	}
+	return head
+}
